@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <script src="https://kit.fontawesome.com/2bee015825.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="email-style.css">
+</head>
+
+<body>
+    <div class="alert alert-success ">
+        <strong id="showmsg"></strong>
+    </div>
+    <h2> EMAIL VERIFICATION</h2>
+    <div class="login-wrapper">
+        <form action="" class="form">
+            <i class="fas fa-pencil-ruler"></i>
+            <div class="input-group">
+                <input type="email" name="email" id="email" novalidate autocomplete="off">
+                <label for="email">Email Address</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" id="password" novalidate>
+                <label for="password">Password</label>
+            </div>
+
+            <span>
+            <button class="btn" id="login">Login</button>
+           </span>
+            <span>
+            <button class="btn" id="submit">Submit</button>
+           </span>
+        </form>
+    </div>
+    <script src="email-script.js"></script>
+</body>
+
+</html>
