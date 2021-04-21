@@ -4,7 +4,6 @@ a.addEventListener('click', login)
 let b = document.getElementById('submit')
 b.addEventListener('click', submit)
 
-var credentials = {}
 
 function login() {
     var em_check = document.getElementById('email').value
@@ -106,5 +105,4 @@ function ValidatePassword(text) {
             alert("Password should be a combination")
         }
     }
-
 }
