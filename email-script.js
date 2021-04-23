@@ -8,15 +8,29 @@ b.addEventListener('click', submit)
 function login() {
     var em_check = document.getElementById('email').value
     var psw_check = document.getElementById('password').value
+    let submitobj=[];
     if (em_check === "") {
         alert("Email cannot be blank")
     } else {
         if (psw_check === "") {
             console.log("Please fill your password")
-        } else {
-            if (localStorage.getItem("password") == psw_check && localStorage.getItem("email") == em_check) {
-                alert("Succes")
-            } else {
+        } 
+        else {
+            let submit = localStorage.getItem('submit')
+            let check = 0;
+             if(submit!=null){
+                submitobj = JSON.parse(submit);
+                submitobj.forEach(element => {
+                    if(element[0]==em_check && element[1]==psw_check){
+                        alert("Account Found");
+                        check=1;
+                    } 
+                });
+                if(!check){
+                    alert("Incorrect Credentials")
+                }
+            }
+            else {
                 alert("Account not found")
             }
         }
@@ -26,19 +40,34 @@ function login() {
 function submit() {
     let em = document.getElementById('email').value
     let psw = document.getElementById('password').value
+    let submitobj=[];
     if (em === "") {
         alert("Email cannot be blank")
     } else {
         if (psw === "") {
             console.log("Password cannot be blank")
-        } else {
+        }
+         else {
             let confirm = ValidateEmail(em)
             if (confirm === true) {
                 let recheck = ValidatePassword(psw)
                 if (recheck === true) {
-                    localStorage.setItem("password", psw)
-                    localStorage.setItem("email", em)
-                    alert("Account Successfully Created")
+                    let submit = localStorage.getItem('submit')
+                    let check = 0;
+                    if(submit!=null){
+                        submitobj = JSON.parse(submit);
+                        submitobj.forEach(element => {
+                            if(element[0]==em){
+                                alert("Account Already Taken");
+                                check=1;
+                            } 
+                        });
+                    }
+                     if(!check){
+                        submitobj.push([em,psw]); 
+                        localStorage.setItem('submit',JSON.stringify(submitobj));
+                        alert("Account Created");
+                    }
                 }
             }
         }
