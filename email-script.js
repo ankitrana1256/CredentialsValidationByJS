@@ -38,7 +38,7 @@ function submit() {
                 if (recheck === true) {
                     localStorage.setItem("password", psw)
                     localStorage.setItem("email", em)
-                    alert("Account Created")
+                    alert("Account Successfully Created")
                 }
             }
         }
